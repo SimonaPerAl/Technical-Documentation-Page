@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animación en css</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+	<nav id="nav-bar">
+		<header >documentación de css (animación)</header>
+		<ul>
+			<li><a class="links" href="#Introducción">Introducción</a></li>
+			<li><a class="links"  href="#@keyframes">@keyframes</a></li>
+			<li><a class="links"  href="#animation-name">animation-name</a></li>
+			<li><a class="links"  href="#animation-duration">animation-duration</a></li>
+			<li><a class="links"  href="#animation-timing-function">animation-timing-function</a></li>
+			<li><a class="links"  href="#animation-delay">animation-delay</a></li>
+			<li><a class="links"  href="#animation-iteration-count">animation-iteration-count</a></li>
+			<li><a class="links"  href="#animation-direction">animation-direction</a></li>
+			<li><a class="links"  href="#animation-fill-mode">animation-fill-mode</a></li>
+			<li><a class="links"  href="#animation-play-state">animation-play-state</a></li>
+		</ul>
+	</nav>
+
+	<main id="main-doc">
+		<section class="main-section" id="Introducción">
+		<header>Introducción</header>
+		<p>Para crear una secuencia de animación CSS, tu estilizarás el elemento que quieras animar con la propiedad animation y sus sub-propiedades. Con ellas podemos no solo configurar el ritmo y la duración de la animación sino otros detalles sobre la secuencia de la animación. Con ellas no configuramos la apariencia actual de la animación, para ello disponemos de <code>@keyframes</code> como describiremos más adelante .</p>
+		<p>Las subpropiedades de animation son:
+			<ol>
+		<li class="properties"><code>animation-name</code>: especifica el nombre de la regla @keyframes que describe los fotogramas de la animación.</li>
+		<li class="properties"><code>animation-duration</code>: indica la cantidad de tiempo que la animación consume en completar su ciclo (duración). </li>
+		<li class="properties"><code>animation-timing-function</code>: indica el ritmo de la animación, es decir, como se muestran los fotogramas de la animación, estableciendo curvas de aceleración.</li>
+		<li class="properties"><code>animation-delay</code>:tiempo de retardo entre el momento en que el elemento se carga y el comienzo de la secuencia de la animación.</li>
+		<li class="properties"><code>animation-iteration-count</code>:el número de veces que se repite. Podemos indicar infinite para repetir la animación indefinidamente.</li> 
+		<li class="properties"><code>animation-direction</code>: indica si la animación debe retroceder hasta el fotograma de inicio al finalizar la secuencia o si debe comenzar desde el principio al llegar al final.</li> 
+		<li class="properties"><code>animation-fill-mode</code>: especifica qué valores tendrán las propiedades después de finalizar la animación (los de antes de ejecutarla, los del último fotograma de la animación o ambos).</li>
+		<li class="properties"><code>animation-play-state</code>: permite pausar y reanudar la secuencia de la animación</li>
+	</ol>
+	</p>		
+		</section>
+
+		<section class="main-section" id="@keyframes">
+			<header>@keyframes</header>	
+			<p>La regla arroba <code>@keyframes</code> permite a los autores controlar los pasos intermedios en una secuencia de animación CSS mediante el establecimiento de keyframes (o puntos de trayectoria) a lo largo de la secuencia de animación que debe ser alcanzado por determinados puntos durante la animación. Esto le da un control más específico sobre los pasos intermedios de la secuencia de animación que se obtiene al dejar que el navegador maneje todo automáticamente.</p>
+			<p>Para utilizar keyframes, se crea una regla de <code>@keyframes</code> con un nombre que es utilizada por la propiedad <code>animation-name</code> para que coincida con una animación de keyframe a su lista. Cada regla <code>@keyframes</code> contiene una lista de estilo de selectores de keyframe, cada una de los cuales está compuesto de un porcentaje a lo largo de la animación en la que se produce el keyframe así como un bloque que contiene la información de estilo para ese keyframe.</p>
+			<p>Puede listar los keyframes en cualquier orden, éstos serán tratados en el orden en que los porcentajes especificados indican que debe ocurrir.</p>				
+		</section>
+
+		<section class="main-section" id="animation-name">
+			<header>animation-name</header>
+			<p>La propiedad CSS <code>animation-name</code> especifica una lista de animaciones que se deben aplicar al elemento seleccionado. Cada nombre indica un <code>@keyframes</code> esta regla define los valores de las propiedades de la secuencia de animación</p>
+			<p>A menudo es conveniente utilizar la propiedad abrevieda animation para ajustar todas las propiedades de animación a la vez.</p>
+		</section>
+
+		<section class="main-section" id="animation-duration">
+			<header>animation-duration</header>
+			<p>La propiedad CSS <code>animation-duration</code> indica la cantidad de tiempo que la animación tarda en completar un ciclo (duración).</p>
+			<p>El valor por defecto es <code>0s</code>, que indica que la animación no debe producirse.</p>
+			<p>Es conveniente usar la propiedad abreviada <code>animation</code> para ajustar todas las propiedades de animación a la vez.</p>
+			<p>Un ejemplo que usa las propiedades reseñadas hasta aquí:</p>
+			<p>En HTML</p>
+			<code>
+				&ltp>The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.&lt/p>
+			</code>
+			<p>En CSS</p>
+			<code class="big-code">
+			p {
+  			animation-duration: 3s;
+  			animation-name: slidein;
+			}
+
+			@keyframes slidein {
+ 			 from {
+    		   margin-left: 100%;
+    		  width: 300%; 
+  			 }
+
+  			 to {
+    			margin-left: 0%;
+    			width: 100%;
+  			}
+			}
+			</code>
+			<p>La animación (recargue la página para repetirla)</p>
+			<div class="animation">
+			<p id="slidein">The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.</p>
+			</div>
+			<button>Abrir en CodePen</button>
+			<button>Abrir en JSFiddle</button>
+			
+		</section>
+
+		<section class="main-section" id="animation-timing-function">
+			<header>animation-timing-function</header>	
+			<p>La propiedad CSS <code>animation-timing-function</code> especifica cómo una animación CSS debe avanzar sobre la duración de cada ciclo. Los posibles valores son una o varias <code>&lttiming-function></code>.</p>
+			<p>Para animaciones con keyframes,  la timing function se aplica entre los keyframes en lugar de sobre toda la animación. Es decir, se aplica al comienzo del keyframe y al final del mismo.</p>
+			<p>Una timing function definida dentro de un keyframe afecta a ese keyframe. Si no está definida para el keyframe, se aplica la timing function para la animación en general.</p>
+			<p>A menudo, es conveniente usar la propiedad abreviada <code>animation</code> para ajustar las propiedades de animación una sola vez.</p>	
+			<p>Siguiendo con el ejemplo anterior:</p>
+			<p>En CSS:</p>
+			<code>
+				p {...
+					animation-timing-function: ease-in;
+			}
+
+			@keyframes slidein {
+			...
+			}
+			</code>
+			<p>La animación</p>
+			<div class="animation">
+			<p id="ease-in">The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.</p>
+			</div>
+		</section>
+
+		<section class="main-section" id="animation-delay">
+			<header>animation-delay</header>			
+			<p>La propiedad CSS <code>animation-delay</code> especifica el tiempo de retardo que debe transcurrir antes de comenzar la animación. Esto permite que la secuencia de animación no comience nada más ser aplicada a un elemento.</p>
+			<p>El valor 0, que es el valor por defecto, indica que la animación debería comenzar inmediatamente. Usando otro valor, definimos el retardo entre el momento en que el elemento recibe la animación y el comienzo de la secuencia de la misma.</p>	
+			<p>Si especificamos un valor negativo, la animación comenzará inmediatamente, pero no desde el principio de la misma, sino desde el punto que le hemos indicado. Por ejemplo, si ponemos un retardo de -1s, la animación se iniciará inmediatamente pero comenzará en el segundo 1 de la secuencia.</p>
+			<p>Si se especifica un valor negativo para el retraso de la animación, pero el valor de inicio es implícito, el valor inicial es tomado desde el momento en que la animación es aplicada al elemento.</p>	
+			<p>A menudo es conveniente usar la propiedad abreviada <code>animation</code> para ajustar las propiedades de animación una sola vez.</p>
+			<p>Siguiendo con el ejemplo anterior:</p>
+			<p>En CSS:</p>
+			<code>
+				p {...
+					animation-delay: 2s;
+			}
+
+			@keyframes slidein {
+			...
+			}
+			</code>
+			<p>La animación</p>
+			<div class="animation">
+			<p id="delay">The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.</p>
+			</div>
+		</section>
+
+		<section class="main-section" id="animation-iteration-count">
+			<header>animation-iteration-count</header>			
+			<p>La propiedad CSS <code>animation-iteration-count</code> define el numero de veces que un ciclo de animación debe ser ejecutado antes de detenerse.</p>
+			<p>A menudo es conveniente utilizar la propiedad <code>animation</code> para ajustar todas las propiedades de animación a la vez.</p>
+			<p>Siguiendo con el ejemplo anterior:</p>
+			<p>En CSS:</p>
+			<code>
+				p {...
+					animation-iteration-count: infinite;
+			}
+
+			@keyframes slidein {
+			...
+			}
+			</code>
+			<p>La animación</p>
+			<div class="animation">
+			<p id="infinite">The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.</p>
+			</div>		
+		</section>
+
+		<section class="main-section" id="animation-direction">
+			<header>animation-direction</header>		
+			<p>La propiedad CSS <code>animation-direction</code> indica si la animación debe retroceder hasta el fotograma de inicio al finalizar la secuencia o si debe comenzar desde el principio al llegar al final./p>
+			<p>Es conveniente usar la propiedad abreviada <code>animation</code> para ajustar todas las propiedades de animación una sola vez.</p>	
+						<p>Siguiendo con el ejemplo anterior:</p>
+			<p>En CSS:</p>
+			<code>
+				p {...
+					animation-direction: alternate;
+			}
+
+			@keyframes slidein {
+			...
+			}
+			</code>
+			<p>La animación</p>
+			<div class="animation">
+			<p id="alternate">The Caterpillar and Alice looked at each other for some time in silence:
+at last the Caterpillar took the hookah out of its mouth, and addressed
+her in a languid, sleepy voice.</p>	
+			</div>	
+		</section>
+
+		<section class="main-section" id="animation-fill-mode">
+			<header>animation-fill-mode</header>		
+			<p>La propiedad de CSS <code>animation-fill-mode</code> establece cómo una animación de css aplica estilos a su objetivo antes y después de su ejecución.</p>
+			<p>A menudo es conveniente utilizar la propiedad <code>animation</code> para ajustar todas las propiedades de animación a la vez.</p>
+<p>Siguiendo con el ejemplo anterior:</p>
+			<p>En CSS:</p>
+			<code>
+				p {...
+					animation-fill-mode: backwards;
+			}
+
+			@keyframes slidein {
+			...
+			}
+			</code>
+			<p>La animación</p>
+			<div class="animation">
+			<p id="backwards">The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.</p>	
+			</div>		
+		</section>
+
+		<section class="main-section" id="animation-play-state">
+			<header>animation-play-state</header>			
+			<p>La propiedad CSS <code>animation-play-state</code> determina si una animación está en ejecución o en pausa. Puede ser consultada para determinar si la animación se está ejecutando. Además, su valor se puede establecer para pausar y reanudar una animación.</p>
+			<p>Reanudando una animación pausada, ésta empezará en el punto en el que fue pausada, en vez de empezar desde el principio.</p>
+			<p>Siguiendo con el ejemplo anterior:</p>
+			<p>En CSS:</p>
+			<code>
+				p {...
+					animation-play-state: paused;
+			}
+
+			@keyframes slidein {
+			...
+			}
+			</code>
+			<p>La animación</p>
+			<div class="animation">
+			<p id="initial">The Caterpillar and Alice looked at each other for some time in silence: at last the Caterpillar took the hookah out of its mouth, and addressed her in a languid, sleepy voice.</p>	
+			</div>	
+		</section>
+	</main>
+	<footer>
+		
+	</footer>
+</body>
+</html>
