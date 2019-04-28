@@ -35,6 +35,7 @@ main{
 	left: 500px;
 	width: 1000px;
 	padding: 52px;
+	margin: 0px;
 }
 
 p {
@@ -63,7 +64,7 @@ code{
     word-wrap: normal;
     background-color:#dddddd;
   padding:15px;
-  margin:10px;
+  margin:8px 0px 8px 0px;
 
 }
 
@@ -73,11 +74,28 @@ code{
 	font-size: 16px;
 }
 .animation{
-	width: 1000px;
-	height: 50px;
+	width: 984px;
+	height: 60px;
 	left: 500px;
 	border-style: solid;
 	border-color: black;
+	padding: 8px;
+	margin-top: 8px;
+	overflow-y: auto;
+}
+footer{
+		background: #dddddd;
+	width: 1104px;
+	color: #000000;
+	text-align: center;
+	height: 50px;
+	padding: 10px;
+	margin: 0px;
+	position: relative;
+	left: 496px;
+	bottom: -8px;	
+	font-family: 'Open Sans', sans-serif;
+	font-size:15px;
 }
 
 @keyframes slidein {
@@ -141,4 +159,54 @@ code{
 	animation-duration: 3s;
   animation-name: slidein;
 	animation-play-state: paused;
+}
+
+@media only screen and (max-width: 815px){
+nav{
+	position: fixed;
+	z-index: 1;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 100px;
+	background: #f4f4f4;
+	top: 0px;
+	left: 0px;
+	padding: 16px;
+}
+header{
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 8px;
+}
+ul{
+	margin: 0px;
+}
+li{
+	list-style-type: none;
+	display: inline;
+	font-size: 16px;
+	padding-left: 20px;
+}
+.properties{
+	list-style-type: decimal;
+	display: block;
+	}
+main{
+	position: relative;
+	left: 8px;
+	width: 100%;
+	top: 160px;
+	margin: 0px;
+	padding: 0px;
+}
+footer{
+	left: 0px;
+	width: 100%;
+	bottom: -180px;
+}
+.animation{
+	width: 100%;
+	height: auto;
+}
 }
